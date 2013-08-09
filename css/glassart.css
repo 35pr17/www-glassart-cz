@@ -1,0 +1,83 @@
+body {
+	background-color: silver;
+	margin: 0;
+	padding: 0;
+	ofverflow-y: hidden;
+}
+
+.landing {
+	padding: 80px 0 30px 0;
+	background-color: black;
+}
+
+.content {
+	padding: 10px 0 50px 0;
+}
+
+.gallery {
+	display: none;
+}
+
+.row {
+	clear: both;
+}
+
+.picture {
+	float: left;
+}
+
+.carousel .glyphicon {
+	font-size: 2em;
+	position: absolute;
+	top: 40%;
+}
+
+.carousel .glyphicon-circle-arrow-left {
+	left: 30%;
+}
+
+.carousel .glyphicon-circle-arrow-right {
+	right: 30%;
+}
+
+.cont {
+	display: none;
+}
+
+.carousel .item img {
+	margin: auto;
+}
+
+#about img {
+	margin-top: 30px;
+}
+
+#about button {
+	margin-top: 10px;
+}
+#contact {
+	margin-top: 40px;
+}
+
+#contact h2 {
+	margin: 5px 0 20px 0;
+}
+
+#contact h2.address {
+	margin: 20px 0 15px 0;
+}
+
+#contact iframe {
+	margin-top: 5px;
+	border: 5px solid grey;
+}
+
+#contact address {
+	margin-top: 5px;
+	line-height: 1.5em;
+}
+
+.center {
+   margin: 0 auto !important;
+   float: none !important;
+}

@@ -1,71 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>www-glassart-cz by 35pr17</title>
+<head>
+<title>Bootstrap 101 Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>www-glassart-cz</h1>
-        <p>The website</p>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/glassart.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button data-target=".navbar-collapse" data-toggle="collapse"
+					class="navbar-toggle" type="button">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Ludek Adamek / Glassart.cz</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#about">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Gallery</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<div class="container-fluid landing">
+		<div id="carousel" class="carousel slide">
+			<ol class="carousel-indicators"></ol>
+			<div class="carousel-inner"></div>
+			<a class="left carousel-control" href="#carousel" data-slide="prev">
+				<span class="glyphicon glyphicon-circle-arrow-left"></span>
+			</a>
+			<a class="right carousel-control" href="#carousel" data-slide="next">
+				<span class="glyphicon glyphicon-circle-arrow-right"></span>
+			</a>
+		</div>
+	</div>
+	<div class="container content">
+		<section id="about">
+			<div class="row">
+				<div class="col-md-8">
+					<h2>Dobrý den</h2>
+					<p>Jmenuji se Luděk Adámek a vítám Vás na svých stránkách. Prakticky celý život se jako autodidakt věnuji výtvarnému umění a posledních patnáct let se zabývám výhradně prací se sklem.</p>
+					<p>Mimo klasických Tiffanyho vitráží se věnuji i tvorbě užitého umění, v mé galerii naleznete vše od mís přes lampy po stoly vytvořené jak klasickými postupy, tak i netradičními kombinacemi stylů a materiálů. Dále zhotovuji originální plastiky do exteriérů i interiérů.</p>
+					<p>Věřím, že Vás má originální tvorba zaujme a že si v mé galerii vyberete něco, co Vám zkrášlí a umělecky doplní Váš byt nebo zahradu.</p>
+					<p class="text-center">
+						<button type="button" class="btn btn-primary btn-lg">Prohlédnout galerii</button>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<img class="img-rounded" src="https://lh4.googleusercontent.com/-gp7s9S_l-n4/UhhSRoOFAJI/AAAAAAAAAL8/Y027QGaWLPc/s320/">
+				</div>
+			</div>
+		</section>
+		<section id="contact">
+			<div class="row">
+				<div class="col-md-8">
+					<iframe width="100%" height="440" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.cz/maps?f=q&amp;source=s_q&amp;hl=cz&amp;geocode=&amp;q=Huzov%C3%A1+244,+Huzov%C3%A1,+Czech+Republic&amp;aq=0&amp;oq=huzova+244&amp;sll=-36.863023,174.865469&amp;sspn=0.638365,1.352692&amp;ie=UTF8&amp;hq=&amp;hnear=Huzov%C3%A1+244,+793+51+Huzov%C3%A1,+Czech+Republic&amp;t=m&amp;ll=49.828626,17.307329&amp;spn=0.019379,0.036478&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+				</div>
 
-        <p class="view"><a href="https://github.com/35pr17/www-glassart-cz">View the Project on GitHub <small>35pr17/www-glassart-cz</small></a></p>
+				<div class="col-md-4">
+					<h2>Přijedte me navštívit</h2>
+					<p>V případě vážného zájmu a po předchozí písemné nebo telefonické dohodě si můžete mé práce prohlédnout osobně přímo v mém ateliéru.</p>
+					<p>Od Olomouce se vydáte směrem na Šternberk, projedete jím a budete pokračovat po silnici číslo 445 směrem na Rýmařov. Po příjezdu do Huzové odbočíte na náměstí hlavní silnice vpravo směrem na Ryžoviště. Po dalších asi pěti stech metrech odbočíte doprava ještě jednou, přejedete most a jste na místě.</p>
+					<h2 class="address">Kontaktni udaje</h2>
+					<address>
+						<strong>Ludek Adamek</strong><br>
+						Huzova 244<br>
+						79351<br>
+						Czech republic<br>
+						Mobile: +420 602 977 505<br>
+						Email: <a href="mailto:ludek.adamek@gmail.com">ludek.adamek@glassart.cz</a>
+					</address>
+				</div>
+			</div>
+		</section>
+		<section id="gallery">
+			<div class="gallery"></div>
+		</section>
+	</div>
 
+	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/underscore.min.js"></script>
+	<script type="text/javascript" src="js/picasa.js"></script>
 
-        <ul>
-          <li><a href="https://github.com/35pr17/www-glassart-cz/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/35pr17/www-glassart-cz/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/35pr17/www-glassart-cz">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/35pr17">35pr17</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+	<!-- Optionally enable responsive features in IE8. Respond.js can be obtained from https://github.com/scottjehl/Respond -->
+	<script src="js/respond.js"></script>
+</body>
 </html>
