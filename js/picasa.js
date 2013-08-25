@@ -109,13 +109,23 @@ var config = {
 	padding : 0
 }
 
-$(window).resize(_.debounce(function() {
-	//$("body").css("padding-top", $(".navbar").height() + "px");
-	if ($(config.container).is(":visible")) {
+function resize() {
+	var height = $(config.container).height();
+	var newHeight = ($(window).height() - ($('.navbar').height() + 1));
+	console.log(height + " : " + newHeight);
+	if (height != newHeight) {
 		$(config.container).css({
-			"height" : ($(window).height() - ($('.navbar').height() + 1)) + "px",
+			"height" : newHeight + "px",
 			"padding" : config.padding + "px"
 		});
+		return true;
+	} else {
+		return false;
+	}
+}
+
+$(window).resize(_.debounce(function() {
+	if ($(config.container).is(":visible") && (resize() || $(".picture", config.container).length == 0)) {
 		$(".picture", config.container).fadeOut(400);
 		fetch(process);
 	}
@@ -202,7 +212,8 @@ function scroll(element) {
 }
 
 $('a.scroll').click(function(){
-    scroll($(this));
+	$(config.container).slideUp();
+	scroll($(this));
 	return false;
 });
 
@@ -215,10 +226,12 @@ $("a").click(function() {
 })
 
 $("a.gallery").click(function() {
-	$(".gallery").show();
+	var self = this;
+	$(config.container).show();
+	scroll($(self));
 	$(window).resize();
-	scroll($(this));
 	return false;
 });
 
+resize();
 carousel();
