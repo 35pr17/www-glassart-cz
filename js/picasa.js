@@ -11,21 +11,14 @@ function Picture(id, title, description, image, thumbs) {
 		var url = this.image.url;
 		url = url.substring(0, url.lastIndexOf('/'));
 		url = url.substring(0, url.lastIndexOf('/'));
-		url += '/s'
-				+ (this.width / this.height > 1 ? (this.width + 1)
-						: (this.height + 1)) + '/';
-		// console.log('/s' + (this.width / this.height > 1 ? this.width :
-		// this.height) + '/');
-		// console.log(this.width + " / " + this.height);
+		url += '/s'	+ (this.width / this.height > 1 ? (this.width + 1) : (this.height + 1)) + '/';
 		return url;
 	}
 }
 
-function Row(width, height) {
+function Row() {
 	this.width = $(config.container).width();
-	this.height = Math
-			.round(($(config.container).height() - ((config.rows) * config.spacing))
-					/ config.rows);
+	this.height = Math.round(($(config.container).height() - ((config.rows) * config.spacing)) / config.rows) - 1;
 	this.pictures = [];
 	this.getWidth = function() {
 		var w = 0;
@@ -110,7 +103,7 @@ var process = function(pictures) {
 
 var config = {
 	url : 'https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5910040221333787729?&kind=photo&access=public&max-results=50&imgmax=1200&alt=jsonc',
-	container : $('.gallery'),
+	container : $('div.gallery'),
 	rows : 3,
 	spacing : 1,
 	padding : 0
@@ -120,7 +113,7 @@ $(window).resize(_.debounce(function() {
 	//$("body").css("padding-top", $(".navbar").height() + "px");
 	if ($(config.container).is(":visible")) {
 		$(config.container).css({
-			"height" : ($(window).height() - ($('.navbar').height() + 5)) + "px",
+			"height" : ($(window).height() - ($('.navbar').height() + 1)) + "px",
 			"padding" : config.padding + "px"
 		});
 		$(".picture", config.container).fadeOut(400);
@@ -199,10 +192,33 @@ function carousel() {
 		'different heading',
 		'and different caption'
 	);
-	
-			
 	$('.carousel').carousel();
 }
 
+function scroll(element) {
+    $('html, body').animate({
+        scrollTop: $('[name="' + $(element).attr('href').substr(1) + '"]').offset().top-40
+    }, 500, 'easeInOutExpo');
+}
+
+$('a.scroll').click(function(){
+    scroll($(this));
+	return false;
+});
+
+$('.nav li a').click(function() {
+    $(this).parent().addClass('active').siblings().removeClass('active');
+});
+
+$("a").click(function() {
+	$(this).blur();
+})
+
+$("a.gallery").click(function() {
+	$(".gallery").show();
+	$(window).resize();
+	scroll($(this));
+	return false;
+});
+
 carousel();
-//$(window).resize();

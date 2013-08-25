@@ -81,3 +81,7 @@ body {
    margin: 0 auto !important;
    float: none !important;
 }
+
+div.gallery {
+	background-color: #000000;
+}
