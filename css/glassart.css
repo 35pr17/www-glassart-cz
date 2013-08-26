@@ -59,8 +59,8 @@ body {
 	margin-top: 40px;
 }
 
-#contact h2 {
-	margin: 5px 0 20px 0;
+section {
+	margin-top: 10px;
 }
 
 #contact h2.address {
@@ -68,8 +68,9 @@ body {
 }
 
 #contact iframe {
-	margin-top: 5px;
-	border: 5px solid grey;
+	margin-top: 24px;
+	height: 480px;
+	border: 7px solid grey;
 }
 
 #contact address {
