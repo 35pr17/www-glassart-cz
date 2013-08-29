@@ -1,3 +1,5 @@
+var pictures = [];
+
 function Picture(id, title, description, image, thumbs) {
 	this.id = id;
 	this.title = (title === "[UNSET]") ? "" : title;
@@ -12,6 +14,13 @@ function Picture(id, title, description, image, thumbs) {
 		url = url.substring(0, url.lastIndexOf('/'));
 		url = url.substring(0, url.lastIndexOf('/'));
 		url += '/s'	+ (this.width / this.height > 1 ? (this.width + 1) : (this.height + 1)) + '/';
+		return url;
+	},
+	this.getFull = function(height) {
+		var url = this.image.url;
+		url = url.substring(0, url.lastIndexOf('/'));
+		url = url.substring(0, url.lastIndexOf('/'));
+		url += '/s'	+ (this.width / this.height > 1 ? Math.round(height * this.width / this.height) : height) + '/';
 		return url;
 	}
 }
@@ -42,17 +51,16 @@ function Row() {
 }
 
 function fetch(callback) {
-	var pictures = [];
 	$.get(config.url, function(result) {
 		$.each(result.data.items, function(index, item) {
 			pictures[pictures.length] = new Picture(item.id, item.title,
 					item.description, item.media.image, []);
 		});
-		callback(pictures);
+		callback();
 	});
 }
 
-function prepare(pictures) {
+function prepare() {
 	// prepare rows - amend picture width to align them
 	var notfull = true, index = 0, rows = [];
 
@@ -101,23 +109,21 @@ var process = function(pictures) {
 	display(rows);
 }
 
-var config = {
-	url : 'https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5910040221333787729?&kind=photo&access=public&max-results=50&imgmax=1200&alt=jsonc',
-	container : $('div.gallery'),
-	rows : 3,
-	spacing : 1,
-	padding : 0
-}
-
 function resize() {
 	var height = $(config.container).height();
+	var width = $(config.container).width();
+
 	var newHeight = ($(window).height() - ($('.navbar').height() + 1));
+	var newWidth = ($(window).width());
+	
 	console.log(height + " : " + newHeight);
 	if (height != newHeight) {
 		$(config.container).css({
 			"height" : newHeight + "px",
 			"padding" : config.padding + "px"
 		});
+	}
+	if (height != newHeight || width != newWidth) {
 		return true;
 	} else {
 		return false;
@@ -131,107 +137,10 @@ $(window).resize(_.debounce(function() {
 	}
 }, 500));
 
-function carouselImage(url, heading, caption) {
-	return $("<div class='item active'/>").append(
-		$("<img/>").attr("src", url)
-	).append(
-		$("<div class='carousel-caption'/>").text(caption)
-	).append(
-		$("<p/>").text(heading)
-	);
-}
-
-function addCarouselItem(carousel, active, url, heading, caption) {
-	var indicator = $("<li/>").attr({
-		'data-target' : '#' + carousel.attr('id'),
-		'data-slide-to' : $('.carousel-indicators li', carousel).length,
-		'class' : (active ? 'active' : '')
-	});
-	var item = $("<div/>").attr({
-		'class' : 'item' + (active ? ' active' : '')
-	}).append(
-		$("<img/>").attr("src", url)
-	).append(
-		$('<div class="container"/>').append(
-			$("<div class='carousel-caption'/>").append(
-				$("<h1/>").text(heading)
-			).append(
-				$("<p/>").text(caption)
-			)
-		)
-	).append(
-		
-	);
-	$('.carousel-indicators', carousel).append(indicator);
-	$('.carousel-inner', carousel).append(item);
-}
-
-function carousel() {
-	addCarouselItem(
-		$(".carousel"),
-		true,
-		'https://lh6.googleusercontent.com/-27yX_laYm0s/UgSu6cHwGzI/AAAAAAAAAEM/S2T7SP21500/s640/',
-		'heading',
-		'some caption'
-	);
-	addCarouselItem(
-		$(".carousel"),
-		false,
-		'https://lh4.googleusercontent.com/-fyk1SVVwX_0/UgSuxYnKghI/AAAAAAAAADM/4A1baS4f9Ac/s640/',
-		'different heading',
-		'and different caption'
-	);
-	addCarouselItem(
-		$(".carousel"),
-		false,
-		'https://lh3.googleusercontent.com/-PehMuii_-Ag/UgSuzU7NH8I/AAAAAAAAADc/lHYbtiAwtxs/s640/',
-		'different heading',
-		'and different caption'
-	);
-	addCarouselItem(
-		$(".carousel"),
-		false,
-		'https://lh6.googleusercontent.com/-iR-fTBiPjA0/UgSuZp3nZII/AAAAAAAAABE/O40bY7K8IA8/s559/',
-		'different heading',
-		'and different caption'
-	);
-	addCarouselItem(
-		$(".carousel"),
-		false,
-		'https://lh5.googleusercontent.com/-3sIPErquL7s/UgSuhrHGsqI/AAAAAAAAAB8/qTNIU2ufoag/s514/',
-		'different heading',
-		'and different caption'
-	);
-	$('.carousel').carousel();
-}
-
-function scroll(element) {
-    $('html, body').animate({
-        scrollTop: $('[name="' + $(element).attr('href').substr(1) + '"]').offset().top-40
-    }, 500, 'easeInOutExpo');
-}
-
-$('a.scroll').click(function(){
-	$(config.container).slideUp();
-	scroll($(this));
-	return false;
-});
-
-$('.nav li a').click(function() {
-    $(this).parent().addClass('active').siblings().removeClass('active');
-});
-
-$("a").click(function() {
-	$(this).blur();
-})
-
-$("a.gallery").click(function() {
-	var self = this;
-	$(config.container).show();
-	scroll($(self));
-	$(window).resize();
-	return false;
-});
-
-resize();
-carousel();
+var config = {
+		url : 'https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5910040221333787729?&kind=photo&access=public&max-results=50&imgmax=1200&alt=jsonc',
+		container : $('div.gallery'),
+		rows : 3,
+		spacing : 1,
+		padding : 0
+	}
