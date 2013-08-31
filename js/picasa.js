@@ -134,10 +134,6 @@ function resize() {
 	}
 }
 
-$("div.Picture").hover(function() {
-	alert("bubla");
-});
-
 $(window).resize(_.debounce(function() {
 	if ($(config.container).is(":visible") && (resize() || $(".picture", config.container).length == 0)) {
 		$(".picture", config.container).fadeOut(400);
@@ -152,3 +148,5 @@ var config = {
 		spacing : 1,
 		padding : 0
 	}
+
+$.ajaxSetup({ cache: false});
