@@ -78,7 +78,6 @@ $(function() {
 			});*/
 			carousel.show();
 		});
-		console.log($("#detail").height());
 	});
 	
 	$("a.gallery").click(function() {

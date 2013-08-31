@@ -120,7 +120,6 @@ function resize() {
 	var newHeight = ($(window).height() - ($('.navbar').height() + 1));
 	var newWidth = ($(window).width());
 	
-	console.log(height + " : " + newHeight);
 	if (height != newHeight) {
 		$(config.container).css({
 			"height" : newHeight + "px",

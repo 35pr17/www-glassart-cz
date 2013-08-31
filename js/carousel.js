@@ -8,13 +8,16 @@ function CarouselItem(active, url, heading, caption) {
 function Carousel(container, indicator) {
 	this.container = $(container);
 	this.indicators = indicator ? $(".carousel-indicators", this.container) : null;
+	this.carousel;
 	
 	this.show = function() {
-		this.container.carousel();
+		this.carousel = this.container.carousel();
 	}
 
 	this.destroy = function() {
-		$(this.container).parent().fadeOut(function() {
+		var self = this;
+		$(self.container).parent().fadeOut(function() {
+			self.container.carousel('pause');
 			$(".carousel-inner", this).empty();
 			
 		});
