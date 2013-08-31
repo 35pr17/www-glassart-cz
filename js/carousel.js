@@ -12,7 +12,14 @@ function Carousel(container, indicator) {
 	this.show = function() {
 		this.container.carousel();
 	}
-	
+
+	this.destroy = function() {
+		$(this.container).parent().fadeOut(function() {
+			$(".carousel-inner", this).empty();
+			
+		});
+	}
+
 	this.add = function(item) {
 		this.addItem(item);
 		this.addIndicator(item);

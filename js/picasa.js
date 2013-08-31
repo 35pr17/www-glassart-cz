@@ -82,6 +82,7 @@ function prepare() {
 }
 
 function display(rows) {
+	var pictureIndex = 0;
 	$.each(rows, function(index, row) {
 		var r = $("<div/>").attr('class', 'line');
 		config.container.append(r);
@@ -94,7 +95,10 @@ function display(rows) {
 				overhang = overhang - piece;
 			}
 			
-			$("<div/>").hide().attr('class', 'picture').css({
+			$("<div/>").hide().attr({
+				'class': 'picture',
+				'rel': pictureIndex++
+			}).css({
 				'margin' : config.spacing + 'px',
 				'width' : picture.width - piece,
 				'height' : picture.height,
@@ -129,6 +133,10 @@ function resize() {
 		return false;
 	}
 }
+
+$("div.Picture").hover(function() {
+	alert("bubla");
+});
 
 $(window).resize(_.debounce(function() {
 	if ($(config.container).is(":visible") && (resize() || $(".picture", config.container).length == 0)) {

@@ -5,6 +5,13 @@ body {
 	ofverflow-y: hidden;
 }
 
+.gallery-navbar {
+	margin-top: 11px;
+	display: none;	
+	position: absolute;
+	right: 30px;	
+}
+
 .landing {
 	padding: 80px 0 30px 0;
 	background-color: black;
@@ -24,6 +31,32 @@ body {
 
 .picture {
 	float: left;
+}
+
+.picture {
+	text-align: center;
+	font-size: 0;
+}
+
+.picture:hover {
+	cursor: pointer;
+}
+
+.picture:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  mardgin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.picture .hover {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.picture .hover a i {
+  font-size: 2em;
 }
 
 .carousel .glyphicon {
@@ -87,9 +120,10 @@ div.gallery {
 	background-color: #000000;
 }
 
-#carouselDetail {
-	padding: 20px 0 20px 0;
+#carouselDetail .carousel-inner .item {
+	margin-top: 20px;
 }
+        
 #detail {
 	z-index: 1000;
 	position: absolute;
