@@ -71,11 +71,6 @@ $(function() {
 						//pictures[index].description
 				));//}
 			});
-			
-			/*$("#detail .carousel .item").css({
-				"height" : config.container.height(),
-				"width" : config.container.width()
-			});*/
 			carousel.show();
 		});
 	});
@@ -93,32 +88,25 @@ $(function() {
 		carousel.add(new CarouselItem(
 			true,
 			'https://lh6.googleusercontent.com/-27yX_laYm0s/UgSu6cHwGzI/AAAAAAAAAEM/S2T7SP21500/s640/',
-			'heading',
-			'some caption'
+			'Light box'
 		));
 		carousel.add(new CarouselItem(
 			false,
 			'https://lh4.googleusercontent.com/-fyk1SVVwX_0/UgSuxYnKghI/AAAAAAAAADM/4A1baS4f9Ac/s640/',
-			'different heading',
-			'and different caption'
+			'Restaurant shade'
 		));
 		carousel.add(new CarouselItem(
 			false,
 			'https://lh3.googleusercontent.com/-PehMuii_-Ag/UgSuzU7NH8I/AAAAAAAAADc/lHYbtiAwtxs/s640/',
-			'different heading',
-			'and different caption'
+			'Wall lights'
 		));
 		carousel.add(new CarouselItem(
 			false,
-			'https://lh6.googleusercontent.com/-iR-fTBiPjA0/UgSuZp3nZII/AAAAAAAAABE/O40bY7K8IA8/s559/',
-			'different heading',
-			'and different caption'
+			'https://lh6.googleusercontent.com/-iR-fTBiPjA0/UgSuZp3nZII/AAAAAAAAABE/O40bY7K8IA8/s559/'
 		));
 		carousel.add(new CarouselItem(
 			false,
-			'https://lh5.googleusercontent.com/-3sIPErquL7s/UgSuhrHGsqI/AAAAAAAAAB8/qTNIU2ufoag/s514/',
-			'different heading',
-			'and different caption'
+			'https://lh5.googleusercontent.com/-3sIPErquL7s/UgSuhrHGsqI/AAAAAAAAAB8/qTNIU2ufoag/s514/'
 		));
 		carousel.show();
 	}
