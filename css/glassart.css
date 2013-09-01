@@ -13,8 +13,12 @@ body {
 }
 
 .landing {
-	padding: 80px 0 30px 0;
+	padding: 70px 0 20px 0;
 	background-color: black;
+}
+
+.landing .carousel {
+	height: 400px;	
 }
 
 .content {

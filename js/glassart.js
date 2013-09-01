@@ -85,29 +85,15 @@ $(function() {
 
 	function carousel() {
 		var carousel = new Carousel(".landing .carousel", false);
-		carousel.add(new CarouselItem(
-			true,
-			'https://lh6.googleusercontent.com/-27yX_laYm0s/UgSu6cHwGzI/AAAAAAAAAEM/S2T7SP21500/s640/',
-			'Light box'
-		));
-		carousel.add(new CarouselItem(
-			false,
-			'https://lh4.googleusercontent.com/-fyk1SVVwX_0/UgSuxYnKghI/AAAAAAAAADM/4A1baS4f9Ac/s640/',
-			'Restaurant shade'
-		));
-		carousel.add(new CarouselItem(
-			false,
-			'https://lh3.googleusercontent.com/-PehMuii_-Ag/UgSuzU7NH8I/AAAAAAAAADc/lHYbtiAwtxs/s640/',
-			'Wall lights'
-		));
-		carousel.add(new CarouselItem(
-			false,
-			'https://lh6.googleusercontent.com/-iR-fTBiPjA0/UgSuZp3nZII/AAAAAAAAABE/O40bY7K8IA8/s559/'
-		));
-		carousel.add(new CarouselItem(
-			false,
-			'https://lh5.googleusercontent.com/-3sIPErquL7s/UgSuhrHGsqI/AAAAAAAAAB8/qTNIU2ufoag/s514/'
-		));
+		fetch('https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5918507007024693649?&kind=photo&access=public&max-results=10&imgmax=1200&alt=jsonc', function(pictures) {
+			$.each(pictures, function(index, picture) {
+				carousel.add(new CarouselItem(
+					(index == 0 ? true : false),
+					picture.getFull($(".landing .carousel").height())
+					//picture.description
+				));
+			});
+		});
 		carousel.show();
 	}
 

@@ -18,8 +18,11 @@ function Picture(id, title, description, image, thumbs) {
 	},
 	this.getFull = function(height) {
 		var url = this.image.url;
+		this.resize(height);
+		
 		url = url.substring(0, url.lastIndexOf('/'));
 		url = url.substring(0, url.lastIndexOf('/'));
+		console.log(this.width + ":" + this.height);
 		url += '/s'	+ (this.width / this.height > 1 ? Math.round(height * this.width / this.height) : height) + '/';
 		return url;
 	}
@@ -50,17 +53,18 @@ function Row() {
 	}
 }
 
-function fetch(callback) {
-	$.get(config.url, function(result) {
+function fetch(url, callback) {
+	var pictures = [];
+	$.get(url, function(result) {
 		$.each(result.data.items, function(index, item) {
 			pictures[pictures.length] = new Picture(item.id, item.title,
 					item.description, item.media.image, []);
 		});
-		callback();
+		callback(pictures);
 	});
 }
 
-function prepare() {
+function prepare(pictures) {
 	// prepare rows - amend picture width to align them
 	var notfull = true, index = 0, rows = [];
 
@@ -108,7 +112,8 @@ function display(rows) {
 	});
 }
 
-var process = function(pictures) {
+var process = function(pics) {
+	pictures = pics;
 	var rows = prepare(pictures);
 	display(rows);
 }
@@ -136,7 +141,7 @@ function resize() {
 $(window).resize(_.debounce(function() {
 	if ($(config.container).is(":visible") && (resize() || $(".picture", config.container).length == 0)) {
 		$(".picture", config.container).fadeOut(400);
-		fetch(process);
+		fetch(config.url, process);
 	}
 }, 500));
 
