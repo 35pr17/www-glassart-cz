@@ -61,7 +61,7 @@ function fetch(url, callback) {
 					item.description, item.media.image, []);
 		});
 		callback(pictures);
-	});
+	}, "json");
 }
 
 function prepare(pictures) {
