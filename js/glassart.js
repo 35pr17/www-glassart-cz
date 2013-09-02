@@ -85,7 +85,7 @@ $(function() {
 
 	function carousel() {
 		var carousel = new Carousel(".landing .carousel", false);
-		fetch('https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5918507007024693649?&kind=photo&access=public&max-results=10&imgmax=1200&alt=jsonc', function(pictures) {
+		fetch('https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5918507007024693649?&kind=photo&access=public&max-results=10&imgmax=1200&&orderby=date&alt=jsonc', function(pictures) {
 			$.each(pictures, function(index, picture) {
 				carousel.add(new CarouselItem(
 					(index == 0 ? true : false),
