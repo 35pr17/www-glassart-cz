@@ -146,7 +146,7 @@ $(window).resize(_.debounce(function() {
 }, 500));
 
 var config = {
-		url : 'https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5910040221333787729?&kind=photo&access=public&max-results=50&imgmax=1200&alt=jsonc',
+		url : 'https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5910040221333787729?&kind=photo&access=public&max-results=50&imgmax=1200&&orderby=date&alt=jsonc',
 		container : $('div.gallery'),
 		rows : 3,
 		spacing : 1,
