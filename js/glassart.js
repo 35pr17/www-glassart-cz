@@ -83,6 +83,10 @@ $(function() {
 		return false;
 	});
 
+	$("button.open-gallery").click(function() {
+		$("a.gallery").click();
+	});
+	
 	function carousel() {
 		var carousel = new Carousel(".landing .carousel", false);
 		fetch('https://picasaweb.google.com/data/feed/api/user/www.glassart.cz/albumid/5918507007024693649?&kind=photo&access=public&max-results=10&imgmax=1200&&orderby=date&alt=jsonc', function(pictures) {
